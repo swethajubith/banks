@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form</title>
+      <style>
+          form{
+             display:flex;
+             flex-direction:column;
+              width:378px;
+          }
+          .btn{
+               margin:10px;
+               cursor:pointer;
+          }
+      </style>
+  </head>
+<body>
+<center>
+    <form action="{% url 'bankapp:registration' %}" method="POST">
+    {% csrf_token %}
+         {{f.as_p}}
+        <thead>
+        <tr>
+            <td>First name</td>
+            <td><input name="name"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input name="email" value="email"></td>
+        </tr>
+        <tr>
+            <td>ph</td>
+            <td><input name="ph"></td>
+        </tr>
+        <tr>
+            <td>dob</td>
+            <td><input name="dob" value="date" type="date"></td>
+        </tr>
+<tr>
+
+<td>gender:</td>
+    <td><input type="radio" name="gender" value="male"> Male</td>
+<input type="radio" name="gender" value="female"> Female<br><br>
+<tr>
+        <tr>
+            <td>address</td>
+            <td><input name="address"></td>
+        </tr>
+        </thead>
+
+
+<!--            <!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+var subjectObject = {
+  "State": {
+    "kannur": ["Thalassery", "Kuthuparamba", "Maloor", "Panoor"],
+    "kozhikode": ["gbg", "gbt", "g", "rg"],
+    "malappuram": ["rgtrb", "grr", "grtrt", "frgr"]
+
+  },
+  "city": {
+    "Kochi": ["g", "grfgbr", "grfr"],
+    "Mumbai": ["rgfgt", "gfrgr", "gr"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("state");
+  var topicSel = document.getElementById("district");
+  var chapterSel = document.getElementById("branch");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+
+    }
+  }
+
+
+  topicSel.onchange = function() {
+    //empty Chapters dropdown
+    chapterSel.length = 1;
+    //display correct values
+    var z = subjectObject[subjectSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+
+        }
+    }
+}
+</script>
+</head>
+<body>
+
+<!--<h1>Cascading Dropdown Example</h1>-->
+
+<!--<form name="form1" id="form1" action="/action_page.php">-->
+
+<br><div class="input-box">
+  <label>State:<center></center><select name="state" id="state">
+    <option value="" selected="selected">Select state</option>
+  </select>
+
+  </label>
+</div>
+<br>
+<div class="input-box">
+  <label>District:<center></center><select name="district" id="district">
+    <option value="" selected="selected">Please select district first</option>
+  </select>
+  <br><br>
+  </label>
+</div>
+<div class="input-box">
+  <label>Branch:<center></center><select name="branch" id="branch">
+    <option value="" selected="selected">Please select branch first</option>
+  </select>
+  </label>
+</div>
+  <br>
+<div class="input-box">
+  <label>Account type:<select class="form-select" name="actype" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+  </label>
+</div>
+<br>
+<div class="input-box">
+  <label>material:<select class="form-select" name="material" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+  </label>
+</div>
+
+<!--  <center><input type="submit" value="submit"></center>-->
+<button type="submit" class="btn btn-success">Submit</button>
+
+{% if messages %}
+{% for message in messages %}
+<h2 style="color:green;">{{message}}</h2>
+{% endfor %}
+{% endif %}
+
+
+
+<!--&lt;!&ndash;-->
+<p><a href="{% url 'bankapp:index' %}">Home</a></p>
+
+</body>
+
+</form>
+    </section>
+
+
+        <tr>
+            <tr>
+               <td><input type="submit" class="btn" value="sign-up"></td>
+        </tr>
+        <tr>
+<!--            <button>-->
+<!--                <a href="login" class="btn"></a>-->
+<!--            </button>-->
+        </tr>
+    </form>
+</center>
+</body>
+</html>
